@@ -16,10 +16,57 @@
                 default : return '';
             }
         }
+        function playRound(playerSelection,computerSelection){
+            let A;
+            let B;
+            switch(playerSelection){
+                case 'rock': A = 1; break;
+                case 'paper': A = 2; break;
+                case 'scissors': A = 3; break;
+                default: A=4; break
+            }
+
+            switch(computerSelection){
+                case 'rock': B = 1; break;
+                case 'paper': B = 2; break;
+                case 'scissors': B = 3; break;
+                default: B=4; break
+            }
+            
+            
+            if(A == 4){
+                alert('Please check your input.');
+            }
+            else if(A==1 && B== 2 || A==2 && B==3 || A==3 && B==1){
+                alert('You lose! '+computerSelection+' beats '+playerSelection+'!');
+                scoreB++;
+            }
+            else if(A==3 && B== 2 || A==2 && B==1 || A==1 && B==3){
+                alert('You Win! '+playerSelection+' beats '+computerSelection+'!');
+                scoreA++;
+            }
+        }
+
+        let scoreA=0;
+        let scoreB=0;
+        function game(){
+            let c=1;
+            while(c<=5){
+                alert('Round '+c+' FIGHT!')
+                let input = prompt('rock - paper - scissors');
+                let playerSelection = input.toLowerCase();
+                let computerSelection = computerPlay();
+                playRound(playerSelection, computerSelection);
+                c++;
+            }
+            alert('Final score:\n Player: '+scoreA+'\nComputer: '+scoreB);
+        }
+
+        //Game Start!
+        game();
+
         
 
-    
-    
     </script>
 
 </body>
