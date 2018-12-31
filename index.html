@@ -36,6 +36,10 @@
             
             if(A == 4){
                 alert('Please check your input.');
+                if(c==0)
+                    c=0;
+                else
+                    c--;
             }
             else if(A==1 && B== 2 || A==2 && B==3 || A==3 && B==1){
                 alert('You lose! '+computerSelection+' beats '+playerSelection+'!');
@@ -49,8 +53,8 @@
 
         let scoreA=0;
         let scoreB=0;
+        let c=1;
         function game(){
-            let c=1;
             while(c<=5){
                 alert('Round '+c+' FIGHT!')
                 let input = prompt('rock - paper - scissors');
@@ -59,7 +63,9 @@
                 playRound(playerSelection, computerSelection);
                 c++;
             }
-            alert('Final score:\n Player: '+scoreA+'\nComputer: '+scoreB);
+            let winner = '';
+            scoreA > scoreB ? winner = 'Player' : winner = 'Computer';
+            alert('Final score:\n Player: '+scoreA+'\nComputer: '+scoreB+'\nWinner: '+winner);
         }
 
         //Game Start!
